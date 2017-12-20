@@ -1,0 +1,39 @@
+html,body{
+    height: 100%;
+}
+
+header{
+    background-color: #eee;
+    height: 10%;
+}
+
+footer{
+    background-color: #ddd;
+    height: 10%;
+}
+
+main{
+    background-color: #aaa;
+    height: 80%;
+}
+
+aside{
+    float: left;
+    background-color: #555;
+    width: 30%;
+    height: 100%;
+    
+}
+
+.content{
+    float: right;
+    background-color: #888;
+    width: 70%;
+    height: 100%;
+}
+
+main:after{
+    content: "";
+    display: table;
+    width: 100%;
+}
