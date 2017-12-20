@@ -1,0 +1,30 @@
+html,body{
+    height: 100%;
+}
+
+body{
+    display:grid;
+    grid-template-rows: 10% 80% 10%;
+}
+
+header{
+    background-color: #eee;
+}
+
+main{
+    background-color: #ddd;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+footer{
+    background-color: #aaa;
+}
+
+aside{
+    background-color: blue;
+}
+
+.content{
+    background-color: purple;
+}
