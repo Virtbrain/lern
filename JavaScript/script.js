@@ -1,3 +1,4 @@
-var txt;
+var txt, num;
 txt = "Используем переменную";
-document.write(txt);
+num = 123;
+document.write(txt + num);
