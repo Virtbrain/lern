@@ -1,5 +1,3 @@
-var x;
-x="Значение числа: ";
-document.write(x);
-x = 123;
-document.write(x);
+var x = "3 + (5*2+6)/4";
+document.write(x + " = ");
+document.write(eval(x));
