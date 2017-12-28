@@ -1,4 +1,5 @@
-var txt, num;
-txt = "Используем переменную";
-num = 123;
-document.write(txt + num);
+var x;
+x="Значение числа: ";
+document.write(x);
+x = 123;
+document.write(x);
