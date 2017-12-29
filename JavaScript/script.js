@@ -1,3 +1,8 @@
-var x = "3 + (5*2+6)/4";
-document.write(x + " = ");
-document.write(eval(x));
+var txt, name
+name = prompt(txt)
+if(name==""){
+    document.write("Жаль, но вы не представились!")
+}
+else{
+    document.write("Приятно вознакомиться, "+name+"!")
+}
