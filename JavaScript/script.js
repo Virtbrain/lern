@@ -1,26 +1,25 @@
-function show(x,y,op){
-    var msg;
-    switch(op){
-        case "сумма":
-            msg=x+"+"+y+"="+(x+y)+"<br>"
-            break;
-        case "разность":
-            msg=x+"-"+y+"="+(x-y)+"<br>"
-            break;
-        case "произведение":
-            msg=x+"*"+y+"="+(x*y)+"<br>"
-            break;
-        case "частное":
-            msg=x+"/"+y+"="+(x/y)+"<br>"
-            break;
+document.write("<h4>Случайные числа</h4>")
+var rnd, msg
+for(var k=1,n=20;k<=n;k++){
+    rnd=6+Math.floor(10*Math.random())
+    msg="<b>"+rnd+"</b>-"
+    
+    switch(rnd){
+        case 6:
+            msg+="cовершенное число ||"
+            break
+        case 7:
+        case 11:
+        case 13:
+            msg+="простое число ||"
+            break
+        case 10:
+        case 15:
+            msg+="делится на пять ||"
+            break
         default:
-            msg="<b>"+op+"</b> - неизвестная операция<br>"
+        msg+="самое обычное число ||"
+            
     }
     document.write(msg)
 }
-
-show(8,4,"произведение");
-show(8,4,"сумма");
-show(8,4,"частное");
-show(8,4,"разность");
-show(8,4,"подмигивание")
