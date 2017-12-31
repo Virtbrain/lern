@@ -1,25 +1,20 @@
-document.write("<h4>Случайные числа</h4>")
-var rnd, msg
-for(var k=1,n=20;k<=n;k++){
-    rnd=6+Math.floor(10*Math.random())
-    msg="<b>"+rnd+"</b>-"
-    
-    switch(rnd){
-        case 6:
-            msg+="cовершенное число ||"
-            break
-        case 7:
-        case 11:
-        case 13:
-            msg+="простое число ||"
-            break
-        case 10:
-        case 15:
-            msg+="делится на пять ||"
-            break
-        default:
-        msg+="самое обычное число ||"
-            
+makeHeader("Знакомимся с функциями")
+
+function getRandText(n){
+    var txt="Случайные числа (от 1 до 10):<br>* "
+    for(var k=1;k<=n;k++){
+        txt+=myRand()+" * "
     }
-    document.write(msg)
+    txt+="<br>"
+    return txt
+}
+
+document.write(getRandText(20))
+
+function myRand(){
+    return 1+Math.floor(10*Math.random())
+}
+
+function makeHeader(t){
+    document.write("<h4>"+t+"</h4>")
 }
