@@ -2,7 +2,7 @@ var myText = "Глобальная переменная"
 document.write(myText+"<br>")
 
 function show(){
-    var myText = "Локальная переменная"
+    myText = "Это не локальная переменная"
     document.write(myText+"<br>")
 }
 
