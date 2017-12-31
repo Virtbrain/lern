@@ -1,8 +1,5 @@
-var myText = "Глобальная переменная"
-document.write(myText+"<br>")
-
 function show(){
-    myText = "Это не локальная переменная"
+    myText = "Глобальная переменная"
     document.write(myText+"<br>")
 }
 
