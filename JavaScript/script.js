@@ -1,16 +1,14 @@
-function diff(f,x,dx){
-    return (f(x+dx)-f(x))/dx
+function fibs(n){
+    if(n==1||n==2){
+        return 1
+    }
+    else{
+        return fibs(n-1)+fibs(n-2)
+    }
 }
 
-function G(x){
-    return x*x+x
-}
+document.write("<h4>Числа Фибоначи</h4>")
 
-function g(x){
-    return 2*x+1
-}
-
-document.write("<h4>Вычисление производной</h4>")
-for(var z=0;z<=2;z+=0.5){
-    document.write(g(z)+" vs. "+diff(G,z,0.001)+"<br>")
+for(var k=1;k<=10;k++){
+    document.write(fibs(k)+" ")
 }
