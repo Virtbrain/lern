@@ -1,19 +1,16 @@
-function power(x,n){
-    if(typeof(n)=="undefined"){
-        n=1
-    }
-    if(typeof(x)=="undefined"){
-        x=1
-    }
-    
-    var s=1,k
-    
-    for(k=1;k<=n;k++){
-        s*=x
-    }
-    return s
+function diff(f,x,dx){
+    return (f(x+dx)-f(x))/dx
 }
 
-document.write("2<sup>3</sup>= "+power(2,3)+"<br>")
-document.write("5<sup>1</sup>= "+power(5)+"<br>")
-document.write("1<sup>1</sup>= "+power()+"<br>")
+function G(x){
+    return x*x+x
+}
+
+function g(x){
+    return 2*x+1
+}
+
+document.write("<h4>Вычисление производной</h4>")
+for(var z=0;z<=2;z+=0.5){
+    document.write(g(z)+" vs. "+diff(G,z,0.001)+"<br>")
+}
