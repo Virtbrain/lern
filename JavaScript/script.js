@@ -1,14 +1,20 @@
-function fibs(n){
-    if(n==1||n==2){
-        return 1
+function mlog(x){
+    var s=0,k
+    var n=100
+    for(k=1;k<=n;k++){
+        s-=power(-x,k)/k
     }
-    else{
-        return fibs(n-1)+fibs(n-2)
-    }
+    return s
 }
 
-document.write("<h4>Числа Фибоначи</h4>")
-
-for(var k=1;k<=10;k++){
-    document.write(fibs(k)+" ")
+function power(z,m){
+    var p=1,i
+    for(i=1;i<=m;i++){
+        p*=z
+    }
+    return p
 }
+
+document.write("<h4>использование внутренней функции</h4>")
+var x=0.5
+document.write("ln(1+"+x+")= "+mlog(x)+"<br>")
