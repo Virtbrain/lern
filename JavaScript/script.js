@@ -1,11 +1,17 @@
-show ("Функция show()")
-var f
-f = show
-f("Теперь это функцийя f()")
-show = "Текстовое значение"
-document.write(show+"<br>")
-
-f("Снова функция f()")
-function show(msg){
-    document.write(msg+"<br>")
+function first(){
+    document.write("Первая функция<br>")
 }
+
+function second(){
+    document.write("Вторая функция<br>")
+}
+
+first()
+second()
+
+tmp=first
+first=second
+second=tmp
+
+first()
+second()
