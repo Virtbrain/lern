@@ -1,17 +1,9 @@
-function first(){
-    document.write("Первая функция<br>")
+var f=function(msg){
+    document.write(msg+"<br>")
 }
 
-function second(){
-    document.write("Вторая функция<br>")
-}
+f("Анонимная функция")
 
-first()
-second()
-
-tmp=first
-first=second
-second=tmp
-
-first()
-second()
+(function(msg){
+    document.write("<b>"+msg+"</b><br>")
+}("Еще одна функция"))
