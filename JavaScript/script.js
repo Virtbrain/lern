@@ -1,9 +1,14 @@
-var f=function(msg){
-    document.write(msg+"<br>")
+function makePolynom(a,b,c){
+    return function(x){
+        return a+b*x+c*x*x
+    }
 }
 
-f("Анонимная функция")
+var P,Q
+P=makePolynom(1,2,1)
+Q=makePolynom(2,-1,1)
 
-(function(msg){
-    document.write("<b>"+msg+"</b><br>")
-}("Еще одна функция"))
+var z=2
+
+document.write("P("+z+")="+P(z)+"<br>")
+document.write("Q("+z+")="+Q(z)+"<br>")
