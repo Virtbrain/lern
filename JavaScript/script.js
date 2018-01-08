@@ -1,14 +1,15 @@
-function makePolynom(a,b,c){
-    return function(x){
-        return a+b*x+c*x*x
+function makeFibs(){
+    var a=0,b=1
+    return next
+    
+    function next(){
+        b=a+b
+        a=b-a
+        return a
     }
 }
 
-var P,Q
-P=makePolynom(1,2,1)
-Q=makePolynom(2,-1,1)
-
-var z=2
-
-document.write("P("+z+")="+P(z)+"<br>")
-document.write("Q("+z+")="+Q(z)+"<br>")
+var nextFib=makeFibs()
+for(var k=1;k<=15;k++){
+    document.write(nextFib()+" | ")
+}
