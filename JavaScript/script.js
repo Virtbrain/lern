@@ -1,11 +1,14 @@
-var obj={}
-
-obj.name = "Иван Петров"
-obj.age = 38
-obj.show = function(){
-    document.write("<b>Имя</b>: "+this.name+"<br>")
-    document.write("<b>Возраст</b>: "+this.age+"<br>")
+function Fellow(name,age){
+    this.name=name
+    this.age=age
+    this.show = function(){
+        document.write("<b>Имя</b>: "+this.name+"<br>")
+        document.write("<b>Возраст</b>: "+this.age+"<br>")
+    }
 }
 
+var objA=new Fellow("Иван Петров",38)
+var objB=new Fellow("Петр Иванов",39)
 
-obj.show()
+objA.show()
+objB.show()
