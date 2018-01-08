@@ -1,14 +1,9 @@
-function Fellow(name,age){
-    this.name=name
-    this.age=age
-    this.show = function(){
-        document.write("<b>Имя</b>: "+this.name+"<br>")
-        document.write("<b>Возраст</b>: "+this.age+"<br>")
+with(document){
+    write("<h4>Знакомимся с песиком</h4>")
+    var dog={name:"Рекс",breed:"Овчарка",age:3}
+    with(dog){
+        write("Кличка: "+name+"<br>")
+        write("Порода: "+breed+"<br>")
+        write("Возраст: "+age+"<br>")
     }
 }
-
-var objA=new Fellow("Иван Петров",38)
-var objB=new Fellow("Петр Иванов",39)
-
-objA.show()
-objB.show()
