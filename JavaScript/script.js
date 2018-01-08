@@ -1,15 +1,10 @@
-function makeFibs(){
-    var a=0,b=1
-    return next
-    
-    function next(){
-        b=a+b
-        a=b-a
-        return a
-    }
-}
+var obj={name:"Иван Петров",age:38}
 
-var nextFib=makeFibs()
-for(var k=1;k<=15;k++){
-    document.write(nextFib()+" | ")
-}
+document.write("<b>Имя</b>: "+obj.name+"<br>")
+document.write("<b>Возраст</b>: "+obj.age+"<br>")
+
+obj.name = "Петр Иванов"
+obj.age++
+
+document.write("<b>Имя</b>: "+obj.name+"<br>")
+document.write("<b>Возраст</b>: "+obj.age+"<br>")
