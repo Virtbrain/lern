@@ -1,10 +1,13 @@
 var obj={name:"Иван Петров",age:38}
 
-document.write("<b>Имя</b>: "+obj.name+"<br>")
-document.write("<b>Возраст</b>: "+obj.age+"<br>")
+show(obj)
 
 obj.name = "Петр Иванов"
 obj.age++
 
-document.write("<b>Имя</b>: "+obj.name+"<br>")
-document.write("<b>Возраст</b>: "+obj.age+"<br>")
+show(obj)
+
+function show(a){
+    document.write("<b>Имя</b>: "+a.name+"<br>")
+    document.write("<b>Возраст</b>: "+a.age+"<br>")
+}
