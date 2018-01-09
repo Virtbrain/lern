@@ -1,8 +1,28 @@
 d=document
-var colors={red:"красный",yellow:"желтый",green:"зеленый"}
+d.write("<h4>Удаление свойств и методов</h4>")
+var colors={
+    red:"красный",
+    yellow:"желтый",
+    green:"зеленый",
+    show:function(){
+        with(d){
+            write("Свойства и методы объкта:<br>")
+            for(var s in this){
+                write(s+" | ")
+            }
+            write("<hr>")
+        }
+    }
+}
 
-var a="red" in colors
-var b="blue" in colors
+colors.show()
+delete colors.red
+colors.show()
+delete colors.yellow
+colors.show()
+delete colors.show
 
-d.write("Наличие свойства red: "+a+"<br>")
-d.write("Наличие свойства blue: "+b+"<br>")
+var tst='"show" in colors'
+d.write(tst+" -> "+eval(tst)+"<br>")
+tst='"green" in colors'
+d.write(tst+" -> "+eval(tst))
