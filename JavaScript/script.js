@@ -1,6 +1,8 @@
 d=document
-d.write("<h4>Цвета</h4>")
 var colors={red:"красный",yellow:"желтый",green:"зеленый"}
-for(var s in colors){
-    d.write(s+" - "+colors[s]+"<br>")
-}
+
+var a="red" in colors
+var b="blue" in colors
+
+d.write("Наличие свойства red: "+a+"<br>")
+d.write("Наличие свойства blue: "+b+"<br>")
