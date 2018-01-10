@@ -1,28 +1,39 @@
-d=document
-d.write("<h4>Удаление свойств и методов</h4>")
-var colors={
-    red:"красный",
-    yellow:"желтый",
-    green:"зеленый",
-    show:function(){
-        with(d){
-            write("Свойства и методы объкта:<br>")
-            for(var s in this){
-                write(s+" | ")
+var X={
+    color:"red",
+    number:123,
+    show:function(arg){
+        document.write("<b>"+arg+"</b>:")
+        for(var s in this){
+            if(s!="show"){
+                document.write(s+" -> "+this[s]+" | ")
             }
-            write("<hr>")
         }
+        document.write("<br>")
     }
 }
 
-colors.show()
-delete colors.red
-colors.show()
-delete colors.yellow
-colors.show()
-delete colors.show
+var A=Object.create(X)
 
-var tst='"show" in colors'
-d.write(tst+" -> "+eval(tst)+"<br>")
-tst='"green" in colors'
-d.write(tst+" -> "+eval(tst))
+var B=Object.create(X)
+
+showAll()
+A.color="yellow"
+A.number=321
+B.color="green"
+
+showAll()
+X.name = "proto"
+A.state = true
+
+showAll()
+delete X.number
+delete A.color
+
+showAll()
+
+function showAll(){
+    X.show("X")
+    A.show("A")
+    B.show("B")
+    document.write("<hr>")
+}
