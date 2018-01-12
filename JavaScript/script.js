@@ -1,39 +1,35 @@
-var X={
-    color:"red",
-    number:123,
-    show:function(arg){
-        document.write("<b>"+arg+"</b>:")
-        for(var s in this){
-            if(s!="show"){
-                document.write(s+" -> "+this[s]+" | ")
-            }
-        }
-        document.write("<br>")
+d=document
+var txt='"name" in Math'
+d.write(txt+" -> "+eval(txt)+"<br>")
+
+var A={color:"red"}
+var B= new Object()
+B.number=100
+showAll()
+
+Object.prototype.name="объект А"
+d.write(txt+" -> "+eval(txt)+"<br>")
+showAll()
+
+B.name = "объект B"
+d.write("Math.name -> "+Math.name+"<br>")
+showAll()
+
+delete Object.prototype.name
+d.write(txt+" -> "+eval(txt)+"<br>")
+showAll()
+
+function show(obj){
+    for(var s in obj){
+        d.write(s+" -> "+obj[s]+" | ")
     }
+    d.write("<br>")
 }
 
-var A=Object.create(X)
-
-var B=Object.create(X)
-
-showAll()
-A.color="yellow"
-A.number=321
-B.color="green"
-
-showAll()
-X.name = "proto"
-A.state = true
-
-showAll()
-delete X.number
-delete A.color
-
-showAll()
-
 function showAll(){
-    X.show("X")
-    A.show("A")
-    B.show("B")
-    document.write("<hr>")
+    d.write("Объект А:")
+    show(A)
+    d.write("Объект В:")
+    show(B)
+    d.write("<br>")
 }
