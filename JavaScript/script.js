@@ -1,35 +1,20 @@
 d=document
-var txt='"name" in Math'
-d.write(txt+" -> "+eval(txt)+"<br>")
+var A=Object.create(Math)
+var B=Object.create(A)
+var C=Object.create(B)
+var D=Object.create(C)
 
-var A={color:"red"}
-var B= new Object()
-B.number=100
-showAll()
-
-Object.prototype.name="объект А"
-d.write(txt+" -> "+eval(txt)+"<br>")
-showAll()
-
-B.name = "объект B"
-d.write("Math.name -> "+Math.name+"<br>")
-showAll()
-
-delete Object.prototype.name
-d.write(txt+" -> "+eval(txt)+"<br>")
-showAll()
-
-function show(obj){
-    for(var s in obj){
-        d.write(s+" -> "+obj[s]+" | ")
-    }
-    d.write("<br>")
+Object.getPrototypeOf(A).f=function(x){
+    return 2*x+1
 }
 
-function showAll(){
-    d.write("Объект А:")
-    show(A)
-    d.write("Объект В:")
-    show(B)
-    d.write("<br>")
-}
+var t=2
+
+d.write("Функция f("+t+")= "+Math.f(t)+"<br>")
+
+t=3
+d.write("Функция f("+t+")= "+D.f(t)+"<br>")
+
+var obj=Object.getPrototypeOf(Object.getPrototypeOf(D))
+
+d.write("obj==B -> "+(obj==B)+"<br>")
