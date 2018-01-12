@@ -1,20 +1,16 @@
-d=document
-var A=Object.create(Math)
-var B=Object.create(A)
+var A={}
+var B=Object.create(null)
 var C=Object.create(B)
-var D=Object.create(C)
+B.number=100
+Object.prototype.name = "Объект А"
 
-Object.getPrototypeOf(A).f=function(x){
-    return 2*x+1
+show(A)
+show(B)
+show(C)
+
+function show(obj){
+    for(var s in obj){
+        document.write(s+" -> "+obj[s])    
+    }
+    document.write("<br>")
 }
-
-var t=2
-
-d.write("Функция f("+t+")= "+Math.f(t)+"<br>")
-
-t=3
-d.write("Функция f("+t+")= "+D.f(t)+"<br>")
-
-var obj=Object.getPrototypeOf(Object.getPrototypeOf(D))
-
-d.write("obj==B -> "+(obj==B)+"<br>")
