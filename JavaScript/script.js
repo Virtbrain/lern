@@ -1,35 +1,23 @@
-function MyObject(name,number){
-    this.name = name
-    this.number = number
-    this.show=function(){
-        for(var s in this){
-            if(s!="show"){
-                document.write(s+" -> "+this[s]+" | ")
-            }
-        }
-        document.write("<br>")
-    }
+function MyObj(){
+    this.number=0
 }
 
-var A = new MyObject("Объект А",100)
-var B = new MyObject("Объект В",200)
+var A=new MyObj()
+var F=A.constructor
+var B=new F()
 
-document.write("<b>Свойства созданных объектов:</b><br>")
-A.show()
-B.show()
+document.write("Свойство B.number = "+B.number+"<br>")
 
-MyObject.prototype.color="Прозрачный"
-document.write("<b>После добавления свойства:</b><br>")
-A.show()
-B.show()
+A={}
+F=A.constructor
+document.write("F==Object -> "+(F==Object)+"<br>")
 
-A.color = "Белый"
+A=new function(){
+    this.name="объект"
+}()
 
-delete MyObject.prototype.color
-document.write("<b>После удаления свойства:</b><br>")
-A.show()
-B.show()
+F=A.constructor
 
-document.write("<b>Проверка прототипа объекта</b><br>")
-var txt="Object.getPrototypeOf(A)==MyObject.prototype"
-document.write(txt+" -> "+eval(txt))
+B=new F()
+document.write("Свойство B.name = "+B.name)
+
