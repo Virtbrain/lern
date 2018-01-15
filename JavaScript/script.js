@@ -1,23 +1,13 @@
-function MyObj(){
-    this.number=0
+var A={number:100}
+Object.prototype.name = "Объект А"
+for(var s in A){
+    document.write(s+" | ")
 }
 
-var A=new MyObj()
-var F=A.constructor
-var B=new F()
+test('"toString" in A')
+test('"valueOf" in A')
+test('"constructor" in A')
 
-document.write("Свойство B.number = "+B.number+"<br>")
-
-A={}
-F=A.constructor
-document.write("F==Object -> "+(F==Object)+"<br>")
-
-A=new function(){
-    this.name="объект"
-}()
-
-F=A.constructor
-
-B=new F()
-document.write("Свойство B.name = "+B.name)
-
+function test(txt){
+    document.write("<br>"+txt+" -> "+eval(txt))
+}
