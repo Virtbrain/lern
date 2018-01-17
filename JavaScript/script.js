@@ -1,13 +1,17 @@
-var A={name:"Объект А",n:0}
-Object.defineProperty(A,"number",{
-    get:function(){
-        return this.n%10
-    },
-    set:function(x){
-        this.n=(x%10)
-    }
-})
+function MyObj(name){
+    var n
+    this.name=name
+    Object.defineProperty(this,"number",{
+        get:function(){
+            return n%10
+        },
+        set:function(x){
+            n=(x%10)
+        }
+    })
+}
 
+var A = new MyObj("Объект А")
 A.number=123
 document.write(A.name+"<br>"+A.number+"<hr>")
 
