@@ -1,13 +1,13 @@
 var A={number:100}
-Object.prototype.name = "Объект А"
-for(var s in A){
-    document.write(s+" | ")
-}
 
-test('"toString" in A')
-test('"valueOf" in A')
-test('"constructor" in A')
+var descriptor = Object.getOwnPropertyDescriptor(A,"number")
+show(A)
+show(descriptor)
 
-function test(txt){
-    document.write("<br>"+txt+" -> "+eval(txt))
+function show(obj){
+    document.write("{| ")
+    for(var s in obj){
+        document.write(" <b>"+s+"</b>: "+obj[s]+" |")
+    }
+    document.write("}<br>")
 }
