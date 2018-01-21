@@ -1,10 +1,6 @@
-var z={re:3,im:4}
-
-Object.defineProperty(z,"abc",{
-    get:function(){
-        return Math.sqrt(this.re*this.re+this.im*this.im)
-    }
-})
-
-document.write("z= "+z.re+" + "+z.im+"i<br>")
-document.write("|z|= "+z.abc)
+document.write("<h4>Создание массива</h4>")
+var nums=[10,true,30,"text",75]
+document.write(nums+"<br>")
+for(var k in nums){
+    document.write(nums[k]+" | ")
+}
