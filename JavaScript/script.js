@@ -1,10 +1,5 @@
-document.write("<h4>Добавление элементов в массив</h4>")
-var nums =[]
-nums[0]=10
-nums[1]=true
-nums[2]=30
-nums[3]="text"
-nums[4]=75
+document.write("<h4>Массив</h4>")
+var nums=new Array(10,true,30,"text",75)
 
 for(var k=0;k<nums.length;k++){
     document.write(nums[k]+" | ")
