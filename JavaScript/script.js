@@ -1,8 +1,11 @@
 document.write("<h4>Числа Фибоначчи</h4>")
-var n=15
-var fibs=new Array(1,1)
+var n=15,a,b
+var fibs=new Array()
+fibs.push(1,1)
 while(fibs.length<n){
-    fibs[fibs.length]=fibs[fibs.length-1]+fibs[fibs.length-2]
+    a=fibs[fibs.length-1]
+    b=fibs[fibs.length-2]
+    fibs.push(a+b)
 }
 
 for(var k=0;k<fibs.length;k++){
