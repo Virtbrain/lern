@@ -1,22 +1,10 @@
-function MyObj(name){
-    var n
-    this.name=name
-    Object.defineProperty(this,"number",{
-        get:function(){
-            return n%10
-        },
-        set:function(x){
-            n=(x%10)
-        }
-    })
-}
+var z={re:3,im:4}
 
-var A = new MyObj("Объект А")
-A.number=123
-document.write(A.name+"<br>"+A.number+"<hr>")
+Object.defineProperty(z,"abc",{
+    get:function(){
+        return Math.sqrt(this.re*this.re+this.im*this.im)
+    }
+})
 
-A.number=5
-document.write(A.name+"<br>"+A.number+"<hr>")
-
-A.n=12
-document.write(A.name+"<br>"+A.number+"<hr>")
+document.write("z= "+z.re+" + "+z.im+"i<br>")
+document.write("|z|= "+z.abc)
