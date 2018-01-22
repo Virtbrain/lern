@@ -1,69 +1,40 @@
-var a=[1,2,3]
-document.write("Массив <code>a</code>:<br>")
-show(a)
-
-var b=["x","y","z"]
-document.write("Массив <code>b</code>:<br>")
-show(b)
-
-var A=a.concat(b)
-document.write("Массив <code>A=a.concet(b)</code>:<br>")
-show(A)
-
-A.reverse()
-document.write("Массив <code>A</code> после выполнения команды <code>A.reverse()</code>:<br>")
-show(A)
-
-A.shift()
-document.write("Массив <code>A</code> после выполнения команды <code>A.shift()</code>:<br>")
-show(A)
-
-A.pop()
-document.write("Массив <code>A</code> после выполнения команды <code>A.pop()</code>:<br>")
-show(A)
-
-A.unshift(10,20,30)
-document.write("Массив <code>A</code> после выполнения команды <code>A.unshift(10,20,30)</code>:<br>")
-show(A)
-
-document.write("Значение выражения <code>A.slice(2,6)</code>:<br>")
-show(A.slice(2,6))
-
-A.splice(3,2,-1,-2,-3)
-document.write("Массив <code>A</code> после выполенния команды <code>A.splice(3,2,-1,-2,-3)</code>:<br>")
-show(A)
-
-document.write("Значение выражения <code>A.map(function(x){return 2*x+1})</code>:<br>")
-show(A.map(function(x){return 2*x+1}))
-document.write("Массив <code>A</code> после выполнения команды<code>A.map(function(x){return 2*x+1})</code>:<br>")
-show(A)
-
-document.write('Значение выражения <code>eval(A.join("+"))</code>:<br>')
-document.write(eval(A.join("+"))+"<br>")
-
-document.write("Значение выражения <code>A.filter(myTest)</code>:<br>")
-show(A.filter(myTest))
-document.write("Массив <code>A</code> после выполнения команды <code>A.filter(myTest)</code>:<br>")
-show(A)
-
-A.sort()
-document.write("Массив <code>A</code> после выполенния команды <code>A.sort()</code>:<br>")
-show(A)
-
-A.sort(mySort)
-document.write("Массив <code>A</code> после выполенния команды <code>A.sort(mySort)</code>:<br>")
-show(A)
-
-function show(array){
-    document.write(array.join(" | ")+"<br>")
+with(document){
+    var A=[5,3,2]
+    write("A = ["+A+"]<br>")
+    write("Результат выполенния команды <code>A.reduce(Math.pow)</code>:<br>")
+    write(A.reduce(Math.pow)+"<br>")
+    
+    write("Результат выполенния команды <code>A.reduceRight(Math.pow)</code>:<br>")
+    write(A.reduceRight(Math.pow)+"<br>")
+    
+    var B=[1,2,,4,5,6,7,,9]
+    write("B =["+B+"]<br>")
+    write("результат выполнения команды <code>B.forEach(fillIt)</code>:<br>")
+    B.forEach(fillIt)
+    write("B =["+B+"]<br>")
+    B.splice(2,1)
+    write("После выполнения команды <code>B.splice(2,1)</code>:<br>")
+    write("B =["+B+"]<br>")
+    B.splice(6,1)
+    write("После выполнения команды <code>B.splice(6,1)</code>:<br>")
+    write("B =["+B+"]<br>")
+    write("После выполнения команды <code>B.some(isIt)</code>:<br>")
+    write(B.some(isIt)+"<br>")
+    write("Результат выполенния команды <code>B.every(isInRange)</code>:<br>")
+    write(B.every(isInRange)+"<br>")
+    write("Результат выполнения команды <code>A.every(isInRange)</code>:<br>")
+    write(A.every(isInRange)+"<br>")
 }
 
-function myTest(x){
-    return (x>-3)&&(x<10)
+function fillIt(value, index, array){
+    array[index]*=10
+    document.write(index+": "+value+"<br>")
 }
 
-function mySort(a,b){
-    if(a<b) return -1
-    if (b>1) return 1
-    return 0
+function isIt(value, index, array){
+    return (index<=array.length/2)&&(value<30)
+}
+
+function isInRange(value, index, array){
+    return (value>0)&&(value<50)
 }
