@@ -25,6 +25,6 @@ show("D",D)
 
 C[1][0]=200
 C[3]=500
-doocument.write("После выполнения команд <code>C[1][0] = 200</code> и <code>C[3] = 500</code>:<br>")
+document.write("После выполнения команд <code>C[1][0] = 200</code> и <code>C[3] = 500</code>:<br>")
 show("C",C)
 show("D",D)
