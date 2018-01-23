@@ -1,12 +1,30 @@
-var A=[1,2,3,4,5]
-document.write("A = ["+A+"]<br>")
-var B=["a","b","c"]
-document.write("B = ["+B+"]<br>")
+function show(name, array){
+    document.write(name+" = "+array.join(" | ")+"<br>")
+}
 
-B=A
-document.write("После присваивания <code>B = A</code>:<br>")
-document.write("B = ["+B+"]<br>")
+var A=[1,2,3,4,5]
+show("A",A)
+
+var B=A.slice(0)
+document.write("После присваивания <code>B = A.slice(0)</code>:<br>")
+show("B",B)
 
 A[0]=100
 document.write("После присваивания <code>A[0] = 100</code>:<br>")
-document.write("B = ["+B+"]<br>")
+show("A",A)
+show("B",B)
+
+document.write("Массив содержит среди элементов другой массив:<br>")
+
+var C=[1,[2,3],4,5]
+show("C",C)
+
+var D=C.slice(0)
+document.write("После присваивания <code>D = C.slice(0)</code>:<br>")
+show("D",D)
+
+C[1][0]=200
+C[3]=500
+doocument.write("После выполнения команд <code>C[1][0] = 200</code> и <code>C[3] = 500</code>:<br>")
+show("C",C)
+show("D",D)
