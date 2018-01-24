@@ -1,16 +1,21 @@
 Array.prototype.toString=function(){
-    var txt="<"+this.join(";")+">"
-    return txt
+    return this.join(" ")+"<br>"
 }
 
-Array.prototype.valueOf=function(){
-    return eval(this.join("+"))/this.length
-}
-
-var A=[1,[2,3],4,"текст",true]
-document.write("Массив:<br>")
+var A=[[1,2,3],[4,5,6],[7,8,9]]
+document.write("<b>Массив А</b>:<br>")
 document.write(A)
-var B=[3,5,1,8,2]
-document.write(["<br>B = ",B].join(""))
-document.write("<br>Среднее значение:"+B+"<br>")
-document.write("Массив "+[1,2,3,4].toString()+" - среднее "+[1,2,3,4].valueOf())
+
+var i,j,m=3,n=4
+var B=new Array(m)
+
+for(i=0;i<B.length;i++){
+    B[i]=new Array(n)
+    for(j=0;j<B[i].length;j++){
+        B[i][j] = "b<sub>"+(i+1)+(j+1)+"</sub>"
+    }
+    
+}
+
+document.write("<b>Массив В</b>:<br>")
+document.write(B)
