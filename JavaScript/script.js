@@ -1,42 +1,16 @@
-function show(name, array){
-    document.write(name+" = "+array.join(" | ")+"<br>")
+Array.prototype.toString=function(){
+    var txt="<"+this.join(";")+">"
+    return txt
 }
 
-function makeCopy(array){
-    var tmp=new Array(array.length)
-    for(var k=0;k<tmp.length;k++){
-        if(Array.isArray(array[k])){
-            tmp[k]=makeCopy(array[k])
-        }
-        else{
-            tmp[k]=array[k]
-        }
-    }
-    return tmp
+Array.prototype.valueOf=function(){
+    return eval(this.join("+"))/this.length
 }
 
-var A=[1,2,3,4,5]
-show("A",A)
-
-var B=makeCopy(A)
-document.write("После присваивания <code>B = makeCopy(A)</code>:<br>")
-show("B",B)
-
-A[0]=100
-document.write("После присваивания <code>A[0] = 100</code>:<br>")
-show("A",A)
-show("B",B)
-
-document.write("Массив содержит сррежит среди элементов другой массив:<br>")
-var C=[1,[2,3],4,5]
-show("C",C)
-
-var D=makeCopy(C)
-document.write("После присваивания <code>D=makeCopy(C)</code>:<br>")
-show("D",D)
-
-C[1][0]=200
-C[3]=500
-document.write("После выполнения команд <code>C[1][0] =200</code> и <code>C[3] =500</code>:<br>")
-show("C",C)
-show("D",D)
+var A=[1,[2,3],4,"текст",true]
+document.write("Массив:<br>")
+document.write(A)
+var B=[3,5,1,8,2]
+document.write(["<br>B = ",B].join(""))
+document.write("<br>Среднее значение:"+B+"<br>")
+document.write("Массив "+[1,2,3,4].toString()+" - среднее "+[1,2,3,4].valueOf())
