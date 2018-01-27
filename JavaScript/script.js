@@ -1,21 +1,11 @@
-Array.prototype.toString=function(){
-    return this.join(" ")+"<br>"
-}
-
-var A=[[1,2,3],[4,5,6],[7,8,9]]
-document.write("<b>Массив А</b>:<br>")
-document.write(A)
-
-var i,j,m=3,n=4
-var B=new Array(m)
-
-for(i=0;i<B.length;i++){
-    B[i]=new Array(n)
-    for(j=0;j<B[i].length;j++){
-        B[i][j] = "b<sub>"+(i+1)+(j+1)+"</sub>"
-    }
+try{
+    document.write("Начало выполнения <code>try</code> блока<br>")
     
+    var txt=prompt("Введите выражение для вычисления:")
+    document.write("Результат вычисления выражения: "+eval(txt)+"<br>")
+}
+catch(e){
+    document.write("<b>Произошла ошибка</b><br>")
 }
 
-document.write("<b>Массив В</b>:<br>")
-document.write(B)
+document.write("Выполнение сценария завершено")
