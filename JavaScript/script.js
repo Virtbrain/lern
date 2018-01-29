@@ -1,25 +1,27 @@
-var A=[2,5,9,1,0,3,7,8,6,4]
-var num
-for(var k=0;k<A.length;k++){
-    num=A[k]
+for(var x=-1;x<=1;x+=2){
     try{
-        if(num==0){
-            throw "нуелевое значение"
+        document.write("Начало внешнего <code>try-catch</code> блока<br>")
+        try{
+            document.write("Начало внутреннего <code>try-catch</code> блока<br>")
+            var A=new Array(x)
+            
+            //Errrrrorrrrr!!!!!!!!!!!!
+            var B=C
         }
-        document.write("Отличное от нуля число: "+num+"<br>")
-    }
-    catch(e){
-        document.write("Внимание: "+e+"<hr>")
-        continue
-    }
-    
-    try{
-        if(num%3==0){
-            throw new Error("Число денлится на три")
+        catch(e){
+            if(e.name=="RangeError"){
+                e.message="Неверный размер массива(ошибка <code>RangeError</code>)"
+                throw e
+            }
+            document.write("Некорректное присваивание<br>")
         }
+        finally{
+            document.write("Завершение врутненего <code>try-catch</code> блока<br>")
+        }
+        document.write("Ошибки <code>RangeError</code> не было<br>")
     }
-    catch(e){
-        document.write(e.message)
+    catch(err){
+        document.write(err.message+"<br>")
     }
-    document.write("<hr>")
+    document.write("Завершение вншнего <code>try-catch</code> блока<hr>")
 }
