@@ -1,27 +1,28 @@
-for(var x=-1;x<=1;x+=2){
+function MyError(id,message){
+    this.id=id
+    this.message=message || "Ошибка пользовательского типа"
+}
+
+
+MyError.prototype=Object.create(Error.prototype)
+MyError.prototype.name="MyError"
+MyError.prototype.toString=function(){
+    var t=this.message+": "+this.name+". "
+    t+="Код ошибки: "+this.id+"."
+    return t
+}
+
+MyError.prototype.constructor=MyError
+try{
     try{
-        document.write("Начало внешнего <code>try-catch</code> блока<br>")
-        try{
-            document.write("Начало внутреннего <code>try-catch</code> блока<br>")
-            var A=new Array(x)
-            
-            //Errrrrorrrrr!!!!!!!!!!!!
-            var B=C
-        }
-        catch(e){
-            if(e.name=="RangeError"){
-                e.message="Неверный размер массива(ошибка <code>RangeError</code>)"
-                throw e
-            }
-            document.write("Некорректное присваивание<br>")
-        }
-        finally{
-            document.write("Завершение врутненего <code>try-catch</code> блока<br>")
-        }
-        document.write("Ошибки <code>RangeError</code> не было<br>")
+        throw new MyError(200,"Рукотворная ошибка")
     }
-    catch(err){
-        document.write(err.message+"<br>")
+
+    catch(e){
+        document.write(e+"<br>")
+        throw new e.constructor(100)
     }
-    document.write("Завершение вншнего <code>try-catch</code> блока<hr>")
+}
+catch(e){
+    document.write(e)
 }
