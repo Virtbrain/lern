@@ -1,28 +1,13 @@
-function MyError(id,message){
-    this.id=id
-    this.message=message || "Ошибка пользовательского типа"
+var obj={name:"Объект",code:123}
+obj["text"]="текст"
+
+for(var k=1;k<=5;k++){
+    obj["symbol_"+k]=String.fromCharCode("A".charCodeAt(0)+k-1)
 }
 
-
-MyError.prototype=Object.create(Error.prototype)
-MyError.prototype.name="MyError"
-MyError.prototype.toString=function(){
-    var t=this.message+": "+this.name+". "
-    t+="Код ошибки: "+this.id+"."
-    return t
+for(var s in obj){
+    document.write("Свойство <b>"+s+"</b>: "+obj[s]+"<br>")
 }
 
-MyError.prototype.constructor=MyError
-try{
-    try{
-        throw new MyError(200,"Рукотворная ошибка")
-    }
-
-    catch(e){
-        document.write(e+"<br>")
-        throw new e.constructor(100)
-    }
-}
-catch(e){
-    document.write(e)
-}
+var list=Object.keys(obj)
+document.write("["+list.join(" | ")+"]")
