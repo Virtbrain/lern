@@ -1,27 +1,45 @@
-function Tree(rank,refs,number,code){
-    this.rank=rank
-    this.number=number || 1
-    this.code=code || "| "
-    this.code+=this.rank+" -> "+this.number+" | "
-    if(this.rank>1){
-        this.next=new Array(refs)
-        for(var k=0;k<this.next.length;k++){
-            this.next[k]=new Tree(this.rank-1,refs,k+1,this.code)
-        }
+function testArgs(func){
+    var n=func.length
+    var words
+    switch(n){
+        case 0:
+            words="Нет аргументов"
+            break
+        case 1:
+            words="Один аргумент"
+            break
+        case 2:
+        case 3:
+        case 4:
+            words=n+" аргумента"
+            break
+        default:
+            words=n+" аргументов."
     }
-    
+    document.write("Функция "+func+": "+words+"<br>")
 }
 
-Tree.prototype.toString=function(){
-    var t="Объект: ранг - "+this.rank+",номер -"+this.number
-    t+=",код - "+this.code+"<br>"
-    if(this.rank>1){
-        for(var k=0;k<this.next.length;k++){
-            t+=this.next[k].toString()
-        }
-    }
-    return t
+function show(){
+    document.write("Всем привет")
+}
+function F(a,b,c,d,e,f){
+    return a*b*c*d*e*f
 }
 
-var myTree=new Tree(4,2)
-document.write(myTree)
+testArgs(eval)
+testArgs(Math.pow)
+testArgs(show)
+testArgs(F)
+
+function getFunc(f1,f2){
+    if(f1.length<=f2.length){
+        return f1
+    }
+    else{
+        return f2
+    }
+}
+
+var x=getFunc(Math.pow,F)(2,3)
+document.write(x+"<br>")
+getFunc(show,eval)()
