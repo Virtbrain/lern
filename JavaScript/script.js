@@ -1,35 +1,37 @@
-
-function f(text,number){
-    this.text=text
-    this.number=number
+function caller(func){
+    return func
 }
 
-var A={}
-var B={show:function(){
-    for(var s in this){
-        document.write(s+": "+this[s]+"<br>")
+function show(txt){
+    document.write(txt+"<br>")
+}
+
+var obj={
+    text:"объект obj",
+    hi:function(){
+        document.write(this.text+"<br>")},
+        toString:function(){
+            return this.text
+        }
     }
-}}
 
-var C={}
-C.method=f
-f("функция",100)
-f.call(A,"Объект А",200)
-f.apply(B,["Объект B",300])
-C.method("Объект C",400)
+caller(show)("функция show()")
+obj.hi()
+caller(obj.hi)()
+caller(obj.hi.bind(obj))()
 
-document.write(text+" | "+number+"<br>")
-document.write(A.text+" | "+A.number+"<br>")
-document.write(B.text+" | "+B.number+"<br>")
-document.write(C.text+" | "+C.number+"<br>")
+var powerOfTwo=Math.pow.bind(Math,2)
+var n=5
+document.write("2<sup>"+n+"</sup> = "+powerOfTwo(n)+"<br>")
+function f(x){
+    return this+x
+}
 
-document.write(("f" in A)+"<br>")
-document.write(("f" in B)+"<br>")
-document.write(("f" in C)+"<br>")
+var one = f.bind(10)
+var two = f.bind(obj)
 
-document.write("<b>Объект B:</b><br>")
-B.show()
-document.write("<b>Объект A:</b><br>")
-B.show.call(A)
-document.write("<b>Объект C:</b><br>")
-B["show"].call(C)
+document.write(one(5)+"<br>")
+document.write(two(" -это он")+"<br>")
+
+obj.text = "тот же объект"
+document.write(two(" -новое значение")+"<br>")
