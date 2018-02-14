@@ -1,7 +1,17 @@
-var x=new Number(12.3478)
-document.write(x.toExponential(10)+"<br>")
-document.write(x.toExponential(2)+"<br>")
-document.write(x.toFixed(10)+"<br>")
-document.write(x.toFixed(2)+"<br>")
-document.write(x.toPrecision(5)+"<br>")
-document.write(x.toPrecision(2)+"<br>")
+var myTrue=new Boolean(true)
+var myFalse=new Boolean(false)
+if(myTrue){
+    document.write("Объект myTrue<br>")
+}
+
+if(myTrue==true){
+    document.write("Снова объект myTrue<br>")
+}
+
+if(myFalse){
+    document.write("Объект myFalse<br>")
+}
+
+if(myFalse==false){
+    document.write("Снова объект myFalse")
+}
