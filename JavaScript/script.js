@@ -1,15 +1,33 @@
-var text="Мы изучаем JavaScript"
-document.write("<b>"+text+"</b><br>")
-for(var k=11;k<text.length;k++){
-    document.write(text[k])
-}
+var today=new Date()
 
-document.write("<br>"+text.slice(0,10))
-document.write("<br>"+text.slice(11))
-document.write("<br>"+text.substring(11))
-document.write("<br>"+text.substr(11))
-document.write("<br>"+text.toUpperCase())
-document.write("<br>"+text.toLowerCase())
-document.write("<br>"+text.search("Java"))
-document.write("<br>"+text.replace("изучаем","любим"))
-document.write("<br><b>"+text+"</b>")
+var tomorrow=new Date(today)
+tomorrow.setDate(tomorrow.getDate()+1)
+
+var yesterday=new Date(today)
+yesterday.setDate(yesterday.getDate()-1)
+
+var monthAfter=new Date(Date.now())
+monthAfter.setMonth(monthAfter.getMonth()+1)
+
+var yearAfter=new Date(Date.now())
+yearAfter.setFullYear(yearAfter.getFullYear()+1)
+
+document.write("<b>Сегодня:</b>"+today+"<br>")
+document.write("<u>Год:</u>"+today.getFullYear()+"<br>")
+document.write("<u>Дата:</u>"+today.toLocaleDateString()+"<br>")
+document.write("<u>Время:</u>"+today.toLocaleTimeString()+"<br>")
+document.write("<b>Завтра:</b>"+tomorrow+"<br>")
+document.write("<b>Вчера:</b>"+yesterday+"<br>")
+document.write("<b>Через месяц:</b>"+monthAfter+"<br>")
+document.write("<b>Через год:</b>"+yearAfter+"<br>")
+
+var meeting=new Date(2015,8,30,8,0,0)
+
+document.write("<b>Сегодня:</b>"+today.toLocaleString()+"<br>")
+document.write("<b>Время и дата встречи:</b>"+meeting.toLocaleString()+"<br>")
+
+meeting.setDate(meeting.getDate()+1)
+document.write("<b>Новое время и дата встречи:</b>"+meeting.toLocaleString()+"<br>")
+document.write("<u>До встречи:</u>"+(meeting-today)+" миллисекунд<br>")
+
+document.write("<u>До встречи:</u>"+Math.round((meeting-today)/1000/60/60/24)+" дней<br>")
