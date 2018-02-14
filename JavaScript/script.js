@@ -1,37 +1,29 @@
-function caller(func){
-    return func
+function zero(txt){
+    document.write("<b>"+txt+"</b><hr>")
 }
 
-function show(txt){
-    document.write(txt+"<br>")
+zero.toString=function(){
+    var t="название функции - zero<br>"
+    t+="Количество аргументов - "+this.lenght+"<br>"
+    return t
 }
 
-var obj={
-    text:"объект obj",
-    hi:function(){
-        document.write(this.text+"<br>")},
-        toString:function(){
-            return this.text
-        }
+function one(txt){
+    document.write("<b>"+txt+"</b><br>")
+    for(var s in this){
+        document.write(this[s]+"<br>")
     }
-
-caller(show)("функция show()")
-obj.hi()
-caller(obj.hi)()
-caller(obj.hi.bind(obj))()
-
-var powerOfTwo=Math.pow.bind(Math,2)
-var n=5
-document.write("2<sup>"+n+"</sup> = "+powerOfTwo(n)+"<br>")
-function f(x){
-    return this+x
+    document.write("<hr>")
 }
 
-var one = f.bind(10)
-var two = f.bind(obj)
+one.toString=function(){
+    var t="Метод one()<br>"
+    t+="Количество аргументов - "+this.length+"<br>"
+    return t
+}
 
-document.write(one(5)+"<br>")
-document.write(two(" -это он")+"<br>")
-
-obj.text = "тот же объект"
-document.write(two(" -новое значение")+"<br>")
+var A=[]
+A[0]=zero
+A[1]=one
+A[0]("Начальный элемент массива")
+A[1]("Элемент с единичным индексом")
