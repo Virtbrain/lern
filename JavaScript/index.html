@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с JS</title>
-</head>
-<body>
-    <h3>Тестируемый сценарий</h3>
-    <hr>
     <script type="text/javascript">
-        function findSum(n){
-            var s=0
-            for(var k=1;k<=n;k++){
-                s+=k
-            }
-            return s
-        }
-
-        function get(){
-            var n
-            n=parseInt(prompt("Укажите число:"))
-            return n
+        function show(){
+            alert("Веб-документ загружен!")
         }
     </script>
-    <a href="javascript: var n=get(); alert('1+2+…+'+n+'='+findSum(n))">Вычислить сумму натуральных чисел</a>
-    <!--<a href="javascript: var n=get(); alert('1+2+...+'+n+'='+findSum(n))">Вычислить сумму натуральных чисел</a>-->
+</head>
+<body onload="show()">
+    <h3>Тестируемый сценарий</h3>
+    <hr>
+    При загрузке документа отображается диалогове окно
 </body>
 </html>
