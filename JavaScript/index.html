@@ -7,8 +7,22 @@
 <body>
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <!---<script type="text/javascript" src="script.js">-
-    </script>-->
-    <a href="javascript: var s=0; for(var k=1;k<=10;k++){s+=k};alert('1+2+...+10='+s)">Вычислить сумму от 1 до 10</a>
+    <script type="text/javascript">
+        function findSum(n){
+            var s=0
+            for(var k=1;k<=n;k++){
+                s+=k
+            }
+            return s
+        }
+
+        function get(){
+            var n
+            n=parseInt(prompt("Укажите число:"))
+            return n
+        }
+    </script>
+    <a href="javascript: var n=get(); alert('1+2+…+'+n+'='+findSum(n))">Вычислить сумму натуральных чисел</a>
+    <!--<a href="javascript: var n=get(); alert('1+2+...+'+n+'='+findSum(n))">Вычислить сумму натуральных чисел</a>-->
 </body>
 </html>
