@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с JS</title>
-    <script type="text/javascript">
-        function show(){
-            alert("Веб-документ загружен!")
-        }
-    </script>
 </head>
-<body onload="show()">
+<body>
     <h3>Тестируемый сценарий</h3>
     <hr>
-    При загрузке документа отображается диалогове окно
+     <script type="text/javascript">
+       while(window.confirm("Готовы ввести команду?")){
+           var res
+           res=window.prompt("Введите команду")
+           if(res!=null){
+               document.write(res+" = "+eval(res)+"<br>")
+           }
+           else{
+               break
+           }
+       }
+        window.alert("Выполнение сценария завершено")
+    </script>
 </body>
 </html>
