@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Работа с JS</title>
     <script type="text/javascript">
-       function doIt(addr){
-           window.location.assign(addr)
-       }
+        function showParameters(){
+            var txt="Внутренние ширина и высота "+window.innerWidth+" и "+window.innerHeight+"<br>"
+            txt+="Внешние ширина и высота "+window.outerWidth+" и "+window.outerHeight+"<br>"
+            mytext.innerHTML=txt
+        }
     </script>
 </head>
-<body>
+<body onload="showParameters()" onresize="showParameters()">
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <b>загрузка документа</b><br>
-    <input type="text" id="myinput" size="40"><br><br>
-    <button onclick="doIt(myinput.value)">Загрузить</button> 
+    <p id="mytext"></p>
+    
+    <button onclick="alert('Координаты: '+window.screenX+' и '+window.screenY)">Показать координаты окна</button>
 </body>
 </html>
