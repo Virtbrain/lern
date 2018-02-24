@@ -4,31 +4,16 @@
     <meta charset="UTF-8">
     <title>Работа с JS</title>
     <script type="text/javascript">
-        function openWindow(){
-            if(window.mywindow&&!mywindow.closed){
-                window.alert("Документ уже открыт")
-            }
-            else{
-                window.mywindow=window.open("myhello.html")
-            }
-        }
-        
-        function closeWindow(){
-            if(window.mywindow&&!mywindow.closed){
-                mywindow.close()
-                window.mywindow=null
-            }
-            else{
-                window.alert("Окно уже закрыто")
-            }
-        }
+       function doIt(addr){
+           window.location.assign(addr)
+       }
     </script>
 </head>
 <body>
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <b>открытие и закрытие окна</b><br>
-    <a href="javascript:openWindow()">Открыть файл myhello.html</a><br>
-    <a href="javascript:closeWindow()">Закрыть окно с файлом myhello.html</a>
+    <b>загрузка документа</b><br>
+    <input type="text" id="myinput" size="40"><br><br>
+    <button onclick="doIt(myinput.value)">Загрузить</button> 
 </body>
 </html>
