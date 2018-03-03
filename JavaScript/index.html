@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с JS</title>
-    <script type="text/javascript">
-        function showParameters(){
-            var txt="Внутренние ширина и высота "+window.innerWidth+" и "+window.innerHeight+"<br>"
-            txt+="Внешние ширина и высота "+window.outerWidth+" и "+window.outerHeight+"<br>"
-            mytext.innerHTML=txt
-        }
-    </script>
 </head>
-<body onload="showParameters()" onresize="showParameters()">
+<body>
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <p id="mytext"></p>
-    
-    <button onclick="alert('Координаты: '+window.screenX+' и '+window.screenY)">Показать координаты окна</button>
+    <p id="mydata" style="font-family: arial; font-size: 25pt; color: black;"><b>Клавиша не нажата: черный текст на белом фоне</b></p>
+    <hr>
+    <b>Обратите внимание на цвет фона и текст, представленный выше.</b>
+    <script type="text/javascript">
+        window.onkeydown=function(){
+            document.body.style.backgroundColor="yellow"
+            var mydata=document.getElementById("mydata")
+            mydata.style.color="blue"
+            mydata.innerHTML="<b>Нажата клавиша: синий текст на желтом фоне</b>"
+        }
+        window.onkeyup=function(){
+            document.body.style.backgroundColor="white"
+            var mydata=document.getElementById("mydata")
+            mydata.style.color="black"
+            mydata.innerHTML="<b>Клавиша не нажата: черный текст на белом фоне</b>"
+        }  
+    </script>
 </body>
 </html>
