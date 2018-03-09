@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с JS</title>
-    <style type="text/css">
-        #myblock{
-            font: bold 25pt sans;
-            color: blue;
-            width: 160px;
-            height: 40px;
-            background: yellow;
-            border: solid 3px red;
-            border-radius: 20px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            text-align: center;
-        }
-    </style>
     <script type="text/javascript">
-        function setMyTime(){
-            var time=new Date()
-            document.getElementById("myblock").innerHTML=time.toLocaleTimeString()
+        var myrand=Math.floor(10*Math.random())+1
+        var si
+        var mytime, myfield, mybtn, output
+        function setNewTime(){
+            var num=parseInt(mytime.innerHTML)-1
+            mytime.innerHTML=num
+            if (num==0){
+                mybtn.disabled=true
+                clearInterval(si)
+            }
+        }
+        function pressMe(){
+            var num=parseInt(myfield.value)
+            output.innerHTML+="Вы ввели число "+num
+            if(num!=myrand){
+                output.innerHTML+=" - это <b>неправильно</b><br>"
+            }
+            else{
+                output.innerHTML+=" - это <b>правильно</b><br>"
+                mybtn.disabled=true
+                clearInterval(si)
+            }
+        }
+        window.onload=function(){
+            mytime=document.getElementById("mytime")
+            myfield=document.getElementById("myfield")
+            mybtn=document.getElementById("mybtn")
+            output=document.getElementById("output")
+            mybtn.disabled=false
+            si=setInterval(setNewTime,1000)
         }
     </script>
 </head>
-<body onload="setInterval(setMyTime,1000)">
+<body>
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <p>Данный документ содержит сценарий, в котором используется метод <code>setInterval()</code>.</p>
-    
-    <div id="myblock"></div>
+    <b>Угадайте число (от 1 до 10).</b>
+    У Вас осталось <b id="mytime">20</b> секунд.<br>
+    Чтобы начать заново перезагрузите документ.
     <hr>
+    <input id="myfield" type="text" size="10px">
+    <input id="mybtn" type="button" value="Угадать" onclick="pressMe()">
+    <hr>
+    <p id="output"></p>
 </body>
 </html>
