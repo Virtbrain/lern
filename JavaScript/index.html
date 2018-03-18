@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Работа с JS</title>
-    <script type="text/javascript">
-        function setColor(){
-            document.bgColor="yellow"
-            document.fgColor="#0000ff"
-            document.vlinkColor="green"
-            document.alinkColor="white"
-        }
-    </script>
 </head>
 <body onload="setColor()">
     <h3>Тестируемый сценарий</h3>
     <hr>
-    <b style="font-size: 200%;">Синий текст на жлтом фоне</b><br>
-    <a href="http://www.vasilev.kiev.ua">Первая гиперссылка</a>
-    <a href="http://www.google.com">Вторая гиперссылка</a><br>
+    <h4>Симпользование метода <code>write()</code></h4>
+    <script type="text/javascript">
+        var k
+        var mynums=["один","два","три","четыре","пять"]
+        document.write("Аргументы метода: ",123," и <b style='font-size:120%;'>",321,"</b><br>")
+        for(k=0;k<mynums.length;k++){
+            document.write(mynums[k]," ")
+        }
+    </script>
+    <h4>Использование метода <code>writeln()</code></h4>
+    <pre>
+        <script>
+            document.writeln("Аргументы метода: ",123," и <b style='font-size:120%;'>",321,"</b><br>")
+            for(k=0;k<mynums.length;k++){
+                document.writeln(mynums[k])
+            }
+        </script>
+    </pre>
 </body>
 </html>
